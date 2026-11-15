@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>東原秘境聖誕露營 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f1419;
+      --card: #1a2332;
+      --card-hover: #243044;
+      --text: #e8eef5;
+      --muted: #8b9bb4;
+      --accent: #e85d4c;
+      --accent-soft: #ff8a7a;
+      --green: #3dd68c;
+      --gold: #f5c542;
+      --border: rgba(255,255,255,0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans TC', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(15, 20, 25, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav {
+      max-width: 1100px; margin: 0 auto; padding: 14px 20px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .logo { font-weight: 700; font-size: 1.15rem; }
+    .logo span { color: var(--accent); }
+
+    /* Hero */
+    .hero {
+      min-height: 58vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 70px 20px 40px;
+      background: radial-gradient(ellipse at 30% 20%, rgba(232,93,76,0.18) 0%, transparent 50%),
+                  radial-gradient(ellipse at 70% 80%, rgba(61,214,140,0.12) 0%, transparent 50%),
+                  var(--bg);
+    }
+    .hero-content { max-width: 720px; }
+    .hero-badge {
+      display: inline-block; background: rgba(232,93,76,0.15); color: var(--accent-soft);
+      padding: 6px 16px; border-radius: 100px; font-size: 0.85rem; font-weight: 500;
+      margin-bottom: 18px; border: 1px solid rgba(232,93,76,0.3);
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 7vw, 3.8rem); font-weight: 700; line-height: 1.15; margin-bottom: 12px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--accent-soft), var(--gold));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-sub { font-size: 1.1rem; color: var(--muted); margin-bottom: 22px; }
+    .hero-meta { display: flex; justify-content: center; gap: 22px; flex-wrap: wrap; font-size: 0.92rem; }
+    .hero-meta a { color: var(--accent-soft); text-decoration: none; font-weight: 600; }
+    .hero-meta a:hover { text-decoration: underline; }
+
+    /* Tabs */
+    .tabs-wrap { max-width: 1000px; margin: 0 auto; padding: 0 20px 60px; }
+    .tab-bar {
+      display: flex; gap: 6px; overflow-x: auto; padding: 8px 0 16px;
+      border-bottom: 1px solid var(--border); margin-bottom: 28px;
+      scrollbar-width: none;
+    }
+    .tab-bar::-webkit-scrollbar { display: none; }
+    .tab-btn {
+      flex: 0 0 auto; background: transparent; border: 1px solid var(--border);
+      color: var(--muted); padding: 9px 16px; border-radius: 100px;
+      font-size: 0.9rem; font-weight: 500; cursor: pointer; font-family: inherit;
+      transition: all 0.2s;
+    }
+    .tab-btn:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
+    .tab-btn.active {
+      background: var(--accent); color: #fff; border-color: var(--accent);
+    }
+    .tab-panel { display: none; animation: fade 0.25s ease; }
+    .tab-panel.active { display: block; }
+    @keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+    .container { max-width: 1000px; margin: 0 auto; }
+    h2 { font-size: 1.7rem; font-weight: 700; margin-bottom: 6px; }
+    .section-desc { color: var(--muted); margin-bottom: 28px; }
+
+    .grid { display: grid; gap: 16px; }
+    .grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+    .card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px;
+    }
+    .card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .card p, .card li { color: var(--muted); font-size: 0.92rem; }
+    .card ul { padding-left: 18px; margin-top: 8px; }
+    .card li { margin: 4px 0; }
+
+    .camp-photo {
+      width: 100%; max-width: 900px; margin: 0 auto 28px;
+      border-radius: 16px; overflow: hidden; border: 1px solid var(--border);
+    }
+    .camp-photo img { width: 100%; height: auto; display: block; max-height: 440px; object-fit: cover; }
+    .camp-photo figcaption { padding: 12px 16px; background: var(--card); color: var(--muted); font-size: 0.85rem; text-align: center; }
+
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before {
+      content: ''; position: absolute; left: 6px; top: 8px; bottom: 8px; width: 2px;
+      background: linear-gradient(to bottom, var(--accent), var(--green));
+    }
+    .tl-item { position: relative; margin-bottom: 26px; }
+    .tl-item::before {
+      content: ''; position: absolute; left: -25px; top: 6px; width: 12px; height: 12px;
+      border-radius: 50%; background: var(--accent); border: 2px solid var(--bg);
+    }
+    .tl-day { font-weight: 700; color: var(--gold); font-size: 0.9rem; margin-bottom: 4px; }
+    .tl-time { color: var(--accent-soft); font-size: 0.85rem; font-weight: 500; }
+    .tl-title { font-weight: 600; margin: 2px 0 4px; }
+    .tl-note { color: var(--muted); font-size: 0.88rem; }
+
+    .table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    th, td { padding: 11px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+    th { background: rgba(255,255,255,0.04); font-weight: 600; color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.4px; }
+    tr:last-child td { border-bottom: none; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 0.75rem; font-weight: 600; }
+    .badge-v { background: rgba(61,214,140,0.2); color: var(--green); }
+    .badge-no { background: rgba(139,155,180,0.15); color: var(--muted); }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .tag { background: rgba(255,255,255,0.06); padding: 4px 12px; border-radius: 100px; font-size: 0.8rem; color: var(--muted); }
+
+    .highlight {
+      background: linear-gradient(135deg, rgba(232,93,76,0.1), rgba(245,197,66,0.08));
+      border: 1px solid rgba(232,93,76,0.25); border-radius: 14px; padding: 18px 20px; margin: 18px 0;
+    }
+    .highlight strong { color: var(--gold); }
+
+    footer { text-align: center; padding: 36px 20px; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--border); }
+
+    @media (max-width: 640px) {
+      .hero { min-height: auto; padding: 50px 16px 30px; }
+      .tabs-wrap { padding: 0 12px 40px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">東原<span>秘境</span></div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">2026 聖誕露營</div>
+    <h1>東原秘境<br><em>夜衝 + 大團露</em></h1>
+    <p class="hero-sub">12/24 夜衝抵達 · 12/25–27 三天兩夜</p>
+    <div class="hero-meta">
+      <span>📍 <a href="https://www.google.com/maps/search/?api=1&query=23.9553495,120.8313606" target="_blank" rel="noopener">南投縣國姓鄉南港村長石巷43之6號</a></span>
+      <span>👥 <strong>31 大 17 小</strong></span>
+      <span>🎄 <strong>聖誕主題活動</strong></span>
+    </div>
+  </div>
+</section>
+
+<div class="tabs-wrap">
+  <div class="tab-bar" role="tablist">
+    <button class="tab-btn active" data-tab="schedule">行程</button>
+    <button class="tab-btn" data-tab="activities">活動</button>
+    <button class="tab-btn" data-tab="daytrip">12/26 一日遊</button>
+    <button class="tab-btn" data-tab="participants">參加者</button>
+    <button class="tab-btn" data-tab="location">位置</button>
+    <button class="tab-btn" data-tab="notes">注意事項</button>
+  </div>
+
+  <!-- 行程 -->
+  <div class="tab-panel active" id="schedule">
+    <h2>總行程表</h2>
+    <p class="section-desc">請務必於夜衝時間內抵達營區。</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-day">12/24（三）夜衝</div>
+        <div class="tl-time">18:00 – 22:00</div>
+        <div class="tl-title">抵達營區</div>
+        <div class="tl-note">請務必在夜衝時間內抵達。</div>
+        <div class="tl-time" style="margin-top:10px">22:00 – 00:00</div>
+        <div class="tl-title">小酌 / 休息</div>
+        <div class="tl-note">各帳／房自行安排。小酌會在客廳帳（客廳帳請 EMMA 準備）。要來小酌請自備酒水、餐食及椅子。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">12/25（四）聖誕節 · 黑色上衣 + 聖誕節配飾</div>
+        <div class="tl-time">08:00 – 12:00</div>
+        <div class="tl-title">早／午餐</div>
+        <div class="tl-note">各帳／房自行安排</div>
+        <div class="tl-time" style="margin-top:10px">13:30 – 16:00</div>
+        <div class="tl-title">遊憩時間 / 團體照拍攝</div>
+        <div class="tl-note">塗鴉躲貓貓（小毛）、躲避飛盤（筱琰）、猴子吃香蕉（雅蓉）、氣球紙杯接力賽（雅蓉）</div>
+        <div class="tl-time" style="margin-top:10px">16:00 – 17:00</div>
+        <div class="tl-title">盜洗 / 煮晚餐</div>
+        <div class="tl-time" style="margin-top:10px">17:30 – 19:00</div>
+        <div class="tl-title">聖誕大餐 & 小孩交換禮物</div>
+        <div class="tl-note">需準備營火（請 EMMA 準備，木材費用報公帳）</div>
+        <div class="tl-time" style="margin-top:10px">19:00 – 20:00</div>
+        <div class="tl-title">盜洗 / 小孩哄睡</div>
+        <div class="tl-time" style="margin-top:10px">20:30 – 00:00</div>
+        <div class="tl-title">聖誕夜大人時間</div>
+        <div class="tl-note">需準備營火（請 EMMA 準備，木材費用報公帳）</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">12/26（五）</div>
+        <div class="tl-time">09:00 – 10:00</div>
+        <div class="tl-title">起床盜洗</div>
+        <div class="tl-time" style="margin-top:10px">10:30 – 19:00</div>
+        <div class="tl-title">南投一日遊</div>
+        <div class="tl-note">詳見「12/26 一日遊」分頁</div>
+        <div class="tl-time" style="margin-top:10px">19:30 – 20:30</div>
+        <div class="tl-title">盜洗 / 小孩哄睡</div>
+        <div class="tl-time" style="margin-top:10px">20:30 – 23:00</div>
+        <div class="tl-title">大人時間</div>
+        <div class="tl-note">各帳／房自行安排。小酌會在客廳帳（客廳帳請 EMMA 準備）。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">12/27（六）撤帳日</div>
+        <div class="tl-time">08:00 – 11:30</div>
+        <div class="tl-title">撤帳</div>
+        <div class="tl-time" style="margin-top:10px">12:30 – 14:00</div>
+        <div class="tl-title">午餐</div>
+        <div class="tl-note">自由參加不設限，但要提前報名。餐廳待定。</div>
+        <div class="tl-time" style="margin-top:10px">14:00 – 16:30</div>
+        <div class="tl-title">回程</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 活動 -->
+  <div class="tab-panel" id="activities">
+    <h2>活動細項</h2>
+    <p class="section-desc">12/25 聖誕節重點活動</p>
+    <div class="grid grid-2" style="margin-bottom:18px">
+      <div class="card">
+        <h3>聖誕大餐</h3>
+        <ul>
+          <li>一家認養一道菜（9 道菜 + 2 主食 + 2 湯品）</li>
+          <li>每道菜抓 12–15 人份</li>
+          <li>17:00 上菜，17:30 開飯</li>
+          <li>請避開牛肉料理</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">自備餐具</span>
+          <span class="tag">自備椅子／小桌子</span>
+          <span class="tag">餐桌至少 4–5 張</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>小孩交換禮物</h3>
+        <ul>
+          <li>一帳或一房為單位</li>
+          <li>自由參加，需提前報名</li>
+          <li>金額 $500–$800</li>
+          <li>禮物需要包裝</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card" style="margin-bottom:16px">
+      <h3>聖誕夜大人喝酒遊戲</h3>
+      <div class="grid grid-2" style="margin-top:12px">
+        <div>
+          <p><strong>1. 指定人喝</strong><br>一個人當主持；一個人來說「喝」或「不喝」；「喝幾杯」；「左邊喝或右邊喝」</p>
+          <p style="margin-top:10px"><strong>2. 報告老師</strong><br>說話前要說「報告老師」，不能說「你」「我」「他」</p>
+        </div>
+        <div>
+          <p><strong>3. 5678</strong><br>採拳最輸的喝完累積杯數</p>
+          <p style="margin-top:10px"><strong>4. 抓倒楣鬼</strong><br>指定 1–6，骰子丟下去，沒指定數字幾顆喝幾杯</p>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">自備透明啤酒杯大小酒杯</span>
+        <span class="tag">骰子、碗公、shots 杯</span>
+      </div>
+    </div>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>大人版交換禮物</h3>
+        <ul>
+          <li>一帳或一房為單位</li>
+          <li>金額 $500–$800</li>
+          <li>主題：喝酒遊戲用得到的酒、食物、搞笑用具、道具…</li>
+          <li>禮物重複雙方要喝特調</li>
+          <li>每一帳／房需準備一款酒</li>
+          <li>禮物需要包裝</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>聖誕老人送禮物</h3>
+        <ul>
+          <li>自由參加，需提前報名</li>
+          <li>爸媽提前將禮物交給聖誕老人並貼姓名</li>
+          <li>聖誕老人：<strong>蔡承憲</strong></li>
+          <li>禮物需要包裝</li>
+          <li>聖誕樹請自行準備</li>
+        </ul>
+      </div>
+    </div>
+    <div class="highlight">
+      <strong>遊憩活動用具：</strong>塗鴉躲貓貓（畫畫組）、躲避飛盤（飛盤）、猴子吃香蕉（香蕉、眼／口罩）、氣球紙杯接力賽（氣球、紙杯）
+    </div>
+  </div>
+
+  <!-- 一日遊 -->
+  <div class="tab-panel" id="daytrip">
+    <h2>12/26 南投一日遊</h2>
+    <p class="section-desc">育銘規劃 · 10:30 從東原出發</p>
+    <div class="card" style="margin-bottom:20px">
+      <h3>行程概覽</h3>
+      <p>10:30 從東原出發 → 11:30 魚池吃午餐 → 約 13:00 到水社碼頭逛逛、租腳踏車騎到向山遊客中心休息 → 自由行動 → 16:00 左右回到水社碼頭 → 16:30 餐廳吃飯 → 18:00 回程 → 19:00 抵達營區</p>
+    </div>
+    <h3 style="margin-bottom:12px; font-size:1.05rem">已報名</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>家庭</th><th>人數</th></tr></thead>
+        <tbody>
+          <tr><td>育銘</td><td>2大1小</td></tr>
+          <tr><td>威娃瑄(凱安)</td><td>4大1小</td></tr>
+          <tr><td>小毛</td><td>2大1小</td></tr>
+          <tr><td>筱琰</td><td>1大2小</td></tr>
+          <tr><td>毓婷(含獻儀)</td><td>3大</td></tr>
+          <tr><td>詠智</td><td>2大2小</td></tr>
+          <tr><td>雅蓉</td><td>2大2小</td></tr>
+          <tr><td>子翔</td><td>2大2小</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 參加者 -->
+  <div class="tab-panel" id="participants">
+    <h2>參加者名單</h2>
+    <p class="section-desc">總計 31 大 17 小</p>
+    <h3 style="margin: 20px 0 12px; font-size:1.05rem">免搭帳</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>家庭</th><th>12/24</th><th>人數</th></tr></thead>
+        <tbody>
+          <tr><td>育銘</td><td><span class="badge badge-v">V</span></td><td>2大1小</td></tr>
+          <tr><td>筱琰</td><td><span class="badge badge-no">—</span></td><td>2大2小</td></tr>
+          <tr><td>承憲</td><td><span class="badge badge-v">V</span></td><td>2大2小</td></tr>
+          <tr><td>威娃瑄(凱安)</td><td><span class="badge badge-v">V</span></td><td>5大1小</td></tr>
+          <tr><td>小毛</td><td><span class="badge badge-v">V</span></td><td>2大1小</td></tr>
+          <tr><td>小芙</td><td><span class="badge badge-v">V</span></td><td>2大1小</td></tr>
+          <tr><td>子翔</td><td><span class="badge badge-no">—</span></td><td>2大2小</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3 style="margin: 28px 0 12px; font-size:1.05rem">搭帳 · 懶人區</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>家庭</th><th>12/24</th><th>人數</th></tr></thead>
+        <tbody>
+          <tr><td>詠智</td><td><span class="badge badge-v">V</span></td><td>2大2小</td></tr>
+          <tr><td>毓婷(含獻儀)</td><td><span class="badge badge-v">V</span></td><td>4人</td></tr>
+          <tr><td>雅蓉</td><td><span class="badge badge-v">V</span></td><td>2大2小</td></tr>
+          <tr><td>阿達</td><td><span class="badge badge-v">V</span></td><td>2大2小</td></tr>
+          <tr><td>盈萱</td><td><span class="badge badge-v">V</span></td><td>2人</td></tr>
+          <tr><td>盈萱弟</td><td><span class="badge badge-v">V</span></td><td>2人1小</td></tr>
+          <tr><td>智宇</td><td colspan="2" style="color:var(--muted)">（資料待補）</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 位置 -->
+  <div class="tab-panel" id="location">
+    <h2>營區位置</h2>
+    <p class="section-desc">海拔約 1000 公尺的隱秘營地，視野開闊。</p>
+    <figure class="camp-photo">
+      <img src="dongyuan.jpg" alt="東原秘境營區山景">
+      <figcaption>東原秘境 · 南投國姓鄉 · 海拔約 1000m</figcaption>
+    </figure>
+    <div class="card" style="text-align:center">
+      <h3>Google Maps</h3>
+      <p style="margin:12px 0 16px">南投縣國姓鄉南港村長石巷43之6號</p>
+      <a href="https://www.google.com/maps/search/?api=1&query=23.9553495,120.8313606" target="_blank" rel="noopener" style="display:inline-block;background:var(--accent);color:#fff;padding:10px 22px;border-radius:8px;text-decoration:none;font-weight:600">開啟地圖</a>
+    </div>
+  </div>
+
+  <!-- 注意事項 -->
+  <div class="tab-panel" id="notes">
+    <h2>注意事項</h2>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>抵達與住宿</h3>
+        <ul>
+          <li>請務必在 12/24 18:00–22:00 夜衝時間內抵達</li>
+          <li>客廳帳由 EMMA 準備</li>
+          <li>小酌請自備酒水、餐食及椅子</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>聖誕大餐</h3>
+        <ul>
+          <li>自備個人用餐餐具（碗、筷、杯子…）</li>
+          <li>自備椅子、小桌子</li>
+          <li>當天主要餐桌至少需要 4–5 張</li>
+          <li>盛完菜後可到旁邊椅子上吃</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>營火</h3>
+        <ul>
+          <li>聖誕大餐與大人時間皆需營火</li>
+          <li>請 EMMA 準備，木材費用報公帳</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>12/27 午餐</h3>
+        <ul>
+          <li>自由參加，需提前報名</li>
+          <li>餐廳待定，有推薦歡迎提出</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>東原秘境聖誕露營 2026 · 12/24–27</p>
+  <p style="margin-top:6px; font-size:0.8rem">資料更新至 11/15 · 如有異動請以最新公告為準</p>
+</footer>
+
+<script>
+  const buttons = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.tab-panel');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
