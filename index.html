@@ -41,7 +41,6 @@
     .logo { font-weight: 700; font-size: 1.15rem; }
     .logo span { color: var(--accent); }
 
-    /* Hero */
     .hero {
       min-height: 58vh;
       display: flex; align-items: center; justify-content: center;
@@ -70,7 +69,6 @@
     .hero-meta a { color: var(--accent-soft); text-decoration: none; font-weight: 600; }
     .hero-meta a:hover { text-decoration: underline; }
 
-    /* Tabs */
     .tabs-wrap { max-width: 1000px; margin: 0 auto; padding: 0 20px 60px; }
     .tab-bar {
       display: flex; gap: 6px; overflow-x: auto; padding: 8px 0 16px;
@@ -179,7 +177,7 @@
 <div class="tabs-wrap">
   <div class="tab-bar" role="tablist">
     <button class="tab-btn active" data-tab="schedule">行程</button>
-    <button class="tab-btn" data-tab="activities">活動</button>
+    <button class="tab-btn" data-tab="activities">12/25 聖誕活動</button>
     <button class="tab-btn" data-tab="daytrip">12/26 一日遊</button>
     <button class="tab-btn" data-tab="participants">參加者</button>
     <button class="tab-btn" data-tab="location">位置</button>
@@ -245,10 +243,10 @@
     </div>
   </div>
 
-  <!-- 活動 -->
+  <!-- 12/25 聖誕活動 -->
   <div class="tab-panel" id="activities">
-    <h2>活動細項</h2>
-    <p class="section-desc">12/25 聖誕節重點活動</p>
+    <h2>12/25 聖誕活動</h2>
+    <p class="section-desc">聖誕節重點活動</p>
     <div class="grid grid-2" style="margin-bottom:18px">
       <div class="card">
         <h3>聖誕大餐</h3>
@@ -323,11 +321,60 @@
   <div class="tab-panel" id="daytrip">
     <h2>12/26 南投一日遊</h2>
     <p class="section-desc">育銘規劃 · 10:30 從東原出發</p>
-    <div class="card" style="margin-bottom:20px">
-      <h3>行程概覽</h3>
-      <p>10:30 從東原出發 → 11:30 魚池吃午餐 → 約 13:00 到水社碼頭逛逛、租腳踏車騎到向山遊客中心休息 → 自由行動 → 16:00 左右回到水社碼頭 → 16:30 餐廳吃飯 → 18:00 回程 → 19:00 抵達營區</p>
+
+    <figure class="camp-photo" style="margin-bottom:28px">
+      <img src="daytrip-map.jpg" alt="12/26 南投一日遊路線圖">
+      <figcaption>一日遊路線示意 · 東原 → 魚池 → 水社碼頭 → 向山遊客中心</figcaption>
+    </figure>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-day">10:30</div>
+        <div class="tl-title">從東原出發</div>
+        <div class="tl-note">營區集合出發前往魚池</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">11:30</div>
+        <div class="tl-title">魚池吃午餐</div>
+        <div class="tl-note">在魚池用餐</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">約 13:00</div>
+        <div class="tl-title">水社碼頭</div>
+        <div class="tl-note">逛逛、租腳踏車騎到向山遊客中心休息<br>
+          <a href="https://www.google.com/maps/search/?api=1&query=南投縣魚池鄉名勝街11號" target="_blank" rel="noopener" style="color:var(--accent-soft)">📍 水社碼頭地圖</a>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">自由行動</div>
+        <div class="tl-title">向山遊客中心周邊</div>
+        <div class="tl-note">騎車、散步、休息<br>
+          <a href="https://www.google.com/maps/search/?api=1&query=南投縣魚池鄉中山路599號" target="_blank" rel="noopener" style="color:var(--accent-soft)">📍 向山遊客中心地圖</a>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">16:00 左右</div>
+        <div class="tl-title">回到水社碼頭</div>
+        <div class="tl-note">集合準備前往晚餐</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">16:30</div>
+        <div class="tl-title">餐廳吃飯</div>
+        <div class="tl-note">晚餐</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">18:00</div>
+        <div class="tl-title">回程</div>
+        <div class="tl-note">返回營區</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">19:00</div>
+        <div class="tl-title">抵達營區</div>
+        <div class="tl-note">結束一日遊</div>
+      </div>
     </div>
-    <h3 style="margin-bottom:12px; font-size:1.05rem">已報名</h3>
+
+    <h3 style="margin:28px 0 12px; font-size:1.05rem">已報名</h3>
     <div class="table-wrap">
       <table>
         <thead><tr><th>家庭</th><th>人數</th></tr></thead>
